@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Little Explorers Montessori Academy</title>
+  <meta name="description" content="View photo and video highlights of school activities, learning sessions, art, and events.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">
+          <div class="logo-block bg-red">A</div>
+          <div class="logo-block bg-yellow">क</div>
+          <div class="logo-block bg-blue">1</div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Little Explorers</span>
+          <span class="brand-sub">Montessori Academy</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="events.html" class="nav-link">Events & News</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Enroll Today</a>
+        <a href="admin.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.9rem;">Admin Portal</a>
+      </div>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Subpage Header -->
+  <section class="bg-colorful-shapes" style="padding: 60px 0; border-bottom: 2px dashed #E2E8F0; text-align: center;">
+    <div class="container">
+      <span class="section-tag">Visual Showcase</span>
+      <h1 class="section-title">Photo & Video Gallery</h1>
+      <p class="section-subtitle">Glimpses of daily discovery, hands-on learning, and festive school celebrations.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Content & Filters -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filter">
+        <button class="filter-btn active" data-category="all">All Photos</button>
+        <button class="filter-btn" data-category="Learning">Learning</button>
+        <button class="filter-btn" data-category="Activities">Activities</button>
+        <button class="filter-btn" data-category="Events">Events</button>
+        <button class="filter-btn" data-category="Art">Art & Crafts</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery-grid-container">
+        <!-- Loaded dynamically via main.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 Little Explorers Montessori Academy. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

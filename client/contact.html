@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Little Explorers Montessori Academy</title>
+  <meta name="description" content="Get in touch with Little Explorers Montessori Academy. Send us a message or schedule a classroom tour.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">
+          <div class="logo-block bg-red">A</div>
+          <div class="logo-block bg-yellow">क</div>
+          <div class="logo-block bg-blue">1</div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Little Explorers</span>
+          <span class="brand-sub">Montessori Academy</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="events.html" class="nav-link">Events & News</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Enroll Today</a>
+        <a href="admin.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.9rem;">Admin Portal</a>
+      </div>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Subpage Header -->
+  <section class="bg-colorful-shapes" style="padding: 60px 0; border-bottom: 2px dashed #E2E8F0; text-align: center;">
+    <div class="container">
+      <span class="section-tag">Get In Touch</span>
+      <h1 class="section-title">Contact Us & Schedule a Tour</h1>
+      <p class="section-subtitle">We would love to welcome you and your family to our Montessori school community.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info Grid -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Contact Form -->
+        <div style="background: #FFFFFF; padding: 40px; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+          <h2 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--text-dark);">Send Us a Message</h2>
+          <p style="color: var(--text-muted); margin-bottom: 25px;">Fill out the form below and our admissions team will get back to you shortly.</p>
+
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Parent / Guardian Name *</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="e.g. Saraswati Sharma" required>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address *</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-phone" class="form-label">Phone Number</label>
+                <input type="tel" id="contact-phone" class="form-control" placeholder="+977 9841234567">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Your Message / Inquiry *</label>
+              <textarea id="contact-message" class="form-control" placeholder="Tell us about your child's age, program of interest, or general questions..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1.1rem;">
+              ✉️ Send Inquiry
+            </button>
+
+            <div id="contact-feedback" style="display: none;"></div>
+          </form>
+        </div>
+
+        <!-- Contact Information & Map -->
+        <div>
+          <div class="contact-info-box" style="margin-bottom: 30px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 25px; color: var(--color-blue);">Contact Information</h3>
+            
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div>
+                <strong>School Address</strong>
+                <p style="color: var(--text-muted);">123 Learning Way, Montessori Garden, Kathmandu, Nepal</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon" style="background: var(--color-green);">📞</div>
+              <div>
+                <strong>Phone Numbers</strong>
+                <p style="color: var(--text-muted);">+977 1-4567890 / +977 9841234567</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon" style="background: var(--color-yellow); color: #333;">✉️</div>
+              <div>
+                <strong>Email Address</strong>
+                <p style="color: var(--text-muted);">info@montessorischool.edu / admissions@montessorischool.edu</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon" style="background: var(--color-purple);">⏰</div>
+              <div>
+                <strong>School Hours</strong>
+                <p style="color: var(--text-muted);">Monday – Friday: 8:30 AM – 3:30 PM<br>Saturday: Closed</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Google Maps Frame / Mock -->
+          <div style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); height: 220px; border: 3px solid #E2E8F0;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14130.857353982855!2d85.3123292!3d27.7089603!2m3!1f0F0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c156554244d!2sKathmandu%2C%20Nepal!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 Little Explorers Montessori Academy. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

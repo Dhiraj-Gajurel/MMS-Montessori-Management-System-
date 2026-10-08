@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs | Little Explorers Montessori Academy</title>
+  <meta name="description" content="Explore our Montessori Toddler, Primary, and Elementary programs designed for age groups from 1.5 to 12 years.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">
+          <div class="logo-block bg-red">A</div>
+          <div class="logo-block bg-yellow">क</div>
+          <div class="logo-block bg-blue">1</div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Little Explorers</span>
+          <span class="brand-sub">Montessori Academy</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="programs.html" class="nav-link active">Programs</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="events.html" class="nav-link">Events & News</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Enroll Today</a>
+        <a href="admin.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.9rem;">Admin Portal</a>
+      </div>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Subpage Header -->
+  <section class="bg-colorful-shapes" style="padding: 60px 0; border-bottom: 2px dashed #E2E8F0; text-align: center;">
+    <div class="container">
+      <span class="section-tag">Developmental Pathways</span>
+      <h1 class="section-title">Our Montessori Programs</h1>
+      <p class="section-subtitle">Nurturing curiosity from toddlerhood through elementary education.</p>
+
+      <div class="showcase-strip" style="justify-content: center; margin-top: 20px;">
+        <div class="tile tile-md bg-red">A</div>
+        <div class="tile tile-md bg-yellow">B</div>
+        <div class="tile tile-md bg-orange">क</div>
+        <div class="tile tile-md bg-purple">ख</div>
+        <div class="tile tile-md bg-green">1</div>
+        <div class="tile tile-md bg-blue">2</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs List Container -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="grid-3" id="programs-container">
+        <!-- Programs are loaded dynamically from Flask backend via main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Enrollment Callout -->
+  <section class="section-padding bg-light" style="text-align: center;">
+    <div class="container" style="max-width: 700px;">
+      <h2 class="section-title">Interested in Enrolling Your Child?</h2>
+      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">
+        We welcome parents to visit our classrooms, observe our Montessori work cycles, and discuss individualized learning goals for your child.
+      </p>
+      <a href="contact.html" class="btn btn-primary" style="padding: 15px 35px; font-size: 1.15rem;">Contact Admissions</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 Little Explorers Montessori Academy. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

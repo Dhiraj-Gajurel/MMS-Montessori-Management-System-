@@ -1,0 +1,132 @@
+/* ==========================================================================
+   MONTESSORI SCHOOL - RESPONSIVE & MOBILE STYLES
+   ========================================================================== */
+
+/* Laptop & Tablet (Under 992px) */
+@media (max-width: 992px) {
+  .hero-grid,
+  .philosophy-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-visual-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile Devices (Under 768px) */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 75px;
+    right: -100%;
+    width: 280px;
+    height: calc(100vh - 75px);
+    background: #FFFFFF;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 20px;
+    transition: var(--transition-fast);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-actions {
+    display: none; /* Accessible inside drawer if needed */
+  }
+
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .tile-lg {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
+  .grid-3, .grid-2, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .resource-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Small Mobile (Under 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .block-row {
+    gap: 8px;
+  }
+
+  .tile-lg {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .devanagari-blocks .tile {
+    font-size: 1.2rem;
+  }
+}

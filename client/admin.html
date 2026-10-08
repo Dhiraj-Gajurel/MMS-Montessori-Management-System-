@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Little Explorers Montessori Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- ADMIN LOGIN VIEW -->
+  <div id="admin-login-view" class="admin-login-wrapper">
+    <div class="admin-login-card">
+      <div class="admin-login-header">
+        <div class="logo-badge">
+          <div class="logo-block bg-red">A</div>
+          <div class="logo-block bg-yellow">क</div>
+          <div class="logo-block bg-blue">1</div>
+        </div>
+        <h1 class="admin-login-title">Admin Portal</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 5px;">
+          Log in with your administrator credentials
+        </p>
+      </div>
+
+      <form id="admin-login-form">
+        <div class="form-group" style="text-align: left;">
+          <label for="admin-email" class="form-label">Username or Email</label>
+          <input type="text" id="admin-email" class="form-control" placeholder="admin@montessori.edu" value="admin" required>
+        </div>
+
+        <div class="form-group" style="text-align: left;">
+          <label for="admin-password" class="form-label">Password</label>
+          <input type="password" id="admin-password" class="form-control" placeholder="••••••••" value="admin123" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; margin-top: 10px;">
+          🔐 Sign In to Dashboard
+        </button>
+
+        <div id="login-error" style="display: none; color: var(--color-red); margin-top: 15px; font-weight: bold; background: #FFEAEB; padding: 10px; border-radius: 8px;"></div>
+      </form>
+
+      <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #E2E8F0;">
+        <a href="index.html" style="color: var(--color-blue); font-weight: 700; font-size: 0.9rem;">← Return to Public Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD VIEW -->
+  <div id="admin-dashboard-view" class="admin-container" style="display: none;">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <div class="logo-badge">
+          <div class="logo-block bg-red" style="width:28px; height:28px; font-size:0.9rem;">A</div>
+          <div class="logo-block bg-yellow" style="width:28px; height:28px; font-size:0.9rem;">क</div>
+        </div>
+        <div style="font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: #FFF;">
+          Montessori Admin
+        </div>
+      </div>
+
+      <nav class="admin-nav">
+        <div class="admin-nav-item active" data-tab="programs">
+          <span class="nav-icon">🧩</span> Programs Management
+        </div>
+        <div class="admin-nav-item" data-tab="resources">
+          <span class="nav-icon">📚</span> Resources Management
+        </div>
+        <div class="admin-nav-item" data-tab="gallery">
+          <span class="nav-icon">🖼️</span> Gallery Management
+        </div>
+        <div class="admin-nav-item" data-tab="events">
+          <span class="nav-icon">📅</span> Events & News
+        </div>
+        <div class="admin-nav-item" data-tab="submissions">
+          <span class="nav-icon">📬</span> Contact Submissions
+        </div>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <a href="index.html" target="_blank" style="color: #94A3B8; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+          🌐 View Live Site
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      <header class="admin-header">
+        <h2 class="admin-header-title">Dashboard Overview</h2>
+        <div class="admin-user-profile">
+          <div class="admin-avatar">A</div>
+          <div>
+            <div id="admin-username-display" style="font-weight: 700; font-size: 0.95rem;">Admin</div>
+            <small style="color: var(--text-muted);">Administrator</small>
+          </div>
+          <button id="admin-logout-btn" class="btn btn-outline" style="padding: 6px 16px; font-size: 0.85rem; margin-left: 15px;">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        
+        <!-- Stats Row -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🧩</div>
+            <div>
+              <div class="stat-value" id="stat-programs-count">0</div>
+              <div class="stat-label">Programs</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--color-green-light); color: var(--color-green);">📚</div>
+            <div>
+              <div class="stat-value" id="stat-resources-count">0</div>
+              <div class="stat-label">Resources</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--color-yellow-light); color: #B7791F;">🖼️</div>
+            <div>
+              <div class="stat-value" id="stat-gallery-count">0</div>
+              <div class="stat-label">Gallery Items</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--color-purple-light); color: var(--color-purple);">📬</div>
+            <div>
+              <div class="stat-value" id="stat-submissions-count">0</div>
+              <div class="stat-label">Inquiries</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 1: PROGRAMS -->
+        <div id="panel-programs" class="admin-panel active">
+          <div class="panel-header">
+            <h3 class="panel-title">Programs Management</h3>
+            <button class="btn btn-primary" onclick="openProgramModal()">+ Add New Program</button>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Program Title</th>
+                  <th>Age Group</th>
+                  <th>Description</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-programs-body">
+                <!-- Loaded via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 2: RESOURCES -->
+        <div id="panel-resources" class="admin-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Resources Management</h3>
+            <button class="btn btn-green" onclick="openResourceModal()">+ Upload Resource</button>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Type</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-resources-body">
+                <!-- Loaded via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 3: GALLERY -->
+        <div id="panel-gallery" class="admin-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Gallery Management</h3>
+            <button class="btn btn-yellow" onclick="openGalleryModal()">+ Add Photo / Video</button>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Preview</th>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Media Type</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-gallery-body">
+                <!-- Loaded via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 4: EVENTS -->
+        <div id="panel-events" class="admin-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Events & News Management</h3>
+            <button class="btn btn-secondary" onclick="openEventModal()">+ Create Event / Announcement</button>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Event Date</th>
+                  <th>Important</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-events-body">
+                <!-- Loaded via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 5: SUBMISSIONS -->
+        <div id="panel-submissions" class="admin-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Contact Form Inquiries</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Sender</th>
+                  <th>Contact Info</th>
+                  <th>Message</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="table-submissions-body">
+                <!-- Loaded via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: ADD/EDIT PROGRAM -->
+  <div id="modal-program" class="admin-modal">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <h3 id="modal-program-title">Add / Edit Program</h3>
+        <span class="admin-modal-close" onclick="closeProgramModal()">&times;</span>
+      </div>
+      <form id="form-program" onsubmit="saveProgram(event)">
+        <input type="hidden" id="program-id">
+        <div class="form-group">
+          <label class="form-label">Program Title</label>
+          <input type="text" id="prog-title" class="form-control" required placeholder="e.g. Primary Program">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Age Group</label>
+          <input type="text" id="prog-age" class="form-control" required placeholder="e.g. 3 to 6 Years">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea id="prog-desc" class="form-control" required placeholder="Program description..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Learning Objectives</label>
+          <textarea id="prog-objectives" class="form-control" placeholder="Objectives..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Activities</label>
+          <textarea id="prog-activities" class="form-control" placeholder="Activities..."></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button type="button" class="btn btn-outline" onclick="closeProgramModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Program</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD RESOURCE -->
+  <div id="modal-resource" class="admin-modal">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <h3>Upload New Resource</h3>
+        <span class="admin-modal-close" onclick="closeResourceModal()">&times;</span>
+      </div>
+      <form id="form-resource" onsubmit="saveResource(event)">
+        <div class="form-group">
+          <label class="form-label">Resource Title</label>
+          <input type="text" id="res-title" class="form-control" required placeholder="e.g. Devanagari Varnamala Tracing Sheet">
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select id="res-category" class="form-control">
+              <option value="Devanagari Script">Devanagari Script (क ख ग घ)</option>
+              <option value="English Alphabet">English Alphabet (A B C D)</option>
+              <option value="Mathematics">Mathematics (1 2 3 4)</option>
+              <option value="Guides & Handbooks">Guides & Handbooks</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">File Type</label>
+            <input type="text" id="res-type" class="form-control" value="PDF">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea id="res-desc" class="form-control" placeholder="Brief description..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload File (PDF/Doc/Image)</label>
+          <input type="file" id="res-file" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label">OR External URL / File Path</label>
+          <input type="text" id="res-url" class="form-control" placeholder="https://example.com/file.pdf">
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button type="button" class="btn btn-outline" onclick="closeResourceModal()">Cancel</button>
+          <button type="submit" class="btn btn-green">Upload & Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD GALLERY -->
+  <div id="modal-gallery" class="admin-modal">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <h3>Add Gallery Item</h3>
+        <span class="admin-modal-close" onclick="closeGalleryModal()">&times;</span>
+      </div>
+      <form id="form-gallery" onsubmit="saveGalleryItem(event)">
+        <div class="form-group">
+          <label class="form-label">Item Caption / Title</label>
+          <input type="text" id="gal-title" class="form-control" required placeholder="e.g. Children Exploring Cylinder Blocks">
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select id="gal-category" class="form-control">
+              <option value="Learning">Learning</option>
+              <option value="Activities">Activities</option>
+              <option value="Events">Events</option>
+              <option value="Art">Art & Crafts</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Media Type</label>
+            <select id="gal-type" class="form-control">
+              <option value="image">Photo / Image</option>
+              <option value="video">Video</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea id="gal-desc" class="form-control" placeholder="Caption details..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload Image File</label>
+          <input type="file" id="gal-file" class="form-control" accept="image/*,video/*">
+        </div>
+        <div class="form-group">
+          <label class="form-label">OR Image / Video URL</label>
+          <input type="text" id="gal-url" class="form-control" placeholder="https://images.unsplash.com/...">
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button type="button" class="btn btn-outline" onclick="closeGalleryModal()">Cancel</button>
+          <button type="submit" class="btn btn-yellow">Add to Gallery</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD/EDIT EVENT (with Rich Text Editor) -->
+  <div id="modal-event" class="admin-modal">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <h3>Create / Edit Event</h3>
+        <span class="admin-modal-close" onclick="closeEventModal()">&times;</span>
+      </div>
+      <form id="form-event" onsubmit="saveEvent(event)">
+        <input type="hidden" id="event-id">
+        <div class="form-group">
+          <label class="form-label">Event / News Title</label>
+          <input type="text" id="evt-title" class="form-control" required placeholder="e.g. Annual Montessori Open House 2026">
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select id="evt-category" class="form-control">
+              <option value="Event">Event</option>
+              <option value="Announcement">Announcement</option>
+              <option value="News">News</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Event Date</label>
+            <input type="text" id="evt-date" class="form-control" placeholder="e.g. October 25, 2026">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 8px; font-weight: bold; cursor: pointer;">
+            <input type="checkbox" id="evt-important"> Mark as Important Announcement ⭐
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Featured Image File</label>
+          <input type="file" id="evt-img-file" class="form-control" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label class="form-label">OR Image URL</label>
+          <input type="text" id="evt-img-url" class="form-control" placeholder="https://images.unsplash.com/...">
+        </div>
+
+        <!-- Rich Text Editor Bar -->
+        <div class="form-group">
+          <label class="form-label">Content (Rich Text)</label>
+          <div class="editor-toolbar" data-target="editor-event-content">
+            <button class="toolbar-btn" data-cmd="bold">B</button>
+            <button class="toolbar-btn" data-cmd="italic"><i>I</i></button>
+            <button class="toolbar-btn" data-cmd="formatBlock" data-value="h3">H3</button>
+            <button class="toolbar-btn" data-cmd="formatBlock" data-value="p">P</button>
+            <button class="toolbar-btn" data-cmd="insertUnorderedList">• List</button>
+            <button class="toolbar-btn" data-cmd="createLink">🔗 Link</button>
+          </div>
+          <div id="editor-event-content" class="editor-content" contenteditable="true" placeholder="Write event details..."></div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button type="button" class="btn btn-outline" onclick="closeEventModal()">Cancel</button>
+          <button type="submit" class="btn btn-secondary">Publish Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
